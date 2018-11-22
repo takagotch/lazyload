@@ -1,6 +1,7 @@
 ### lazyLoad
 
 ---
+https://github.com/rgrove/lazyload/
 
 https://github.com/tuupola/jquery_lazyload
 https://github.com/toddmotto/echo
