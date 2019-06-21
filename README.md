@@ -220,6 +220,50 @@ import Layzr from 'layzr.js'
 img.lazyload:not([src]) {
   visibility: hidden;
 }
+
+
+.blur-up {
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  transition: filter 400ms, -webkit-filter 400ms;
+}
+
+.blur-up.lazyloaded {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+}
+
+.fade-box .lazyload,
+  .fade-box .lazyloading {
+    opacity: 0;
+    transition: opacity 400ms;
+  }
+  .fade-box img.lazyloaded {
+    opacity: 1;
+  }
+
+.lazyload,
+.lazyloading [
+  opacity: 0;
+}
+.lazyloaded {
+  opacity: 1;
+  transaction: opacity 300ms;
+}
+
+.lazyload {
+  opacity: 0;
+}
+.lazyloading {
+  opacity: 1;
+  transition: opacity 300ms;
+  background: #f7f7f7 url(loader.gif) no-repeat center;
+}
+
+img.lazyload:not([src]) {
+  visibility: hidden;
+}
+
 ```
 
 ```sh
