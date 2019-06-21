@@ -264,6 +264,68 @@ img.lazyload:not([src]) {
   visibility: hidden;
 }
 
+
+.ratio-container {
+  position: relative;
+}
+.ratio-container:after {
+  content: '';
+  display: block;
+  height: 0;
+  width: 100%;
+  padding-bottom: 42.86%;
+}
+.ratio-container > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ratio-box {
+  position: relative;
+  height: 0;
+  display: block;
+  width: 100%;
+}
+.ratio-box img,
+.ratio-box iframe,
+.ratio-box video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ratio-container {
+  position: relative;
+}
+.ratio-container:after {
+
+}
+.ratio-container > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.unknown-ratio-container > * {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.lazyload,
+.lazyloading {
+  min-height: 200px;
+}
 ```
 
 ```sh
