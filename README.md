@@ -151,6 +151,50 @@ $('.my-widget').each(function(){
   
   $module.myWidget();
 });
+
+instance
+  .handlers(true)
+  .handlers(false)
+  
+instance.check()
+
+instance.update()
+
+instance.on('src:before', (element) => {
+})
+
+instance.on('src:after', (element) => {
+})
+
+const instance = Layzr({
+  retina: 'data-retina'
+})
+
+const instance = Layzr({
+  srcset: 'data-srcset'
+})
+
+const instance = Layzr({
+  threshold: 0
+})
+
+const instance = Lazyr({
+  normal: 'data-normal',
+  retina: 'data-retina',
+  srcset: 'data-srcset',
+  threshold: 0
+})
+
+const instance = Layzr({
+  normal: 'data-normal'
+})
+
+const instance = Layzr()
+
+const instance = Layzr({
+})
+
+import Layzr from 'layzr.js'
 ```
 
 ```css
@@ -184,6 +228,8 @@ npm install lazyload
 
 bower install echojs
 npm install echo-js
+
+npm install layzr.js --save
 ```
 
 ```
@@ -202,5 +248,12 @@ npm install echo-js
 <script src=""></script>
 <img class="" data-src="img/example.jpg" width="765" height="574" />
 <img class="lazyload" src="img/example-humb.jpg" data-src="img/example.jpg" width="765" height="574" />
+
+<img data-normal="normal.jpg">
+
+<img data-normal="normal.jpg" data-retina="retina.jpg">
+
+<img data-normal="normal.jpg" data-retina="retina.jpg" data-srcset="small.jpg 320w, medium.jpg 768w, large.jpg 1024w">
+
 ```
 
