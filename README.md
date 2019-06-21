@@ -73,6 +73,109 @@ echo.init({
 });
 
 echo.render();
+
+
+import 'lazysizes';
+import 'lazysizes/parent-fit/ls.parent-fit';
+
+
+window.lazySizesConfig = window.lazySizesConfig || {};
+
+window.lazySizesConfig.lazyClass = `lazy`;
+
+lazySizesConfig.srcAttr = 'data-original';
+
+lazySizeConfig.loadMode = 1;
+
+import lazySizes from `lazysizes`;
+lazySizes.cfg.lazyClass = `lazy`;
+
+window.lazySizesConfig = window.lazySizesCofig || {};
+window.lazySizesConfig.customMedia = {
+  '--small': '(max-width: 480px)',
+  `--medium`: '(max-width: 900px)',
+  `--large`: '(max-width: 1400px)',
+};
+
+document.addEventListener('lazybeforeunveil', function(e) {
+  var bg = e.target.getAttribute('data-bg');
+  if(bg) {
+    e.target.style.backgroundImage = 'url( + bg + ')';
+  }
+});
+
+$(document).on('lazybeforeunveil', function(){
+    var ajax = $(e.target).data('ajax');
+  if(ajax) {
+    $(e.target).load(ajax);
+  }
+});
+
+document.addEventListener('lazybeforeunveil', function(e){
+  $(e.target)
+    .filter('.slider')
+    .slider({
+      sliderOption: true
+    })
+  ;
+});
+
+document.addEventListener('lazybeforeunveil', function(e){
+  $(e.target)
+    .filter('.chart')
+    .chart({
+      animate: true
+    })
+  ;
+});
+
+$(document).on('lazybeforesizes', function(e){
+  e.detail.width = $(e.target).closest(':not(picture)').innerWidth() || e.detail.width;
+});
+
+lazySizes.loader.unveil(imgElem);
+
+lazySizes.autoSizer.checkElems();
+
+window.lazySizesConfig = window.lazySizesConfig || {};
+window.lazySizesConfig.init = false;
+lazySizes.init();
+
+$('.my-widget').each(function(){
+  var $module = $(this);
+  var update = function() {
+    $module.myWidget('updateLayout');
+  };
+  
+  this.addEventListener('load', update, true);
+  
+  $module.myWidget();
+});
+```
+
+```css
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+.lazyloaded {
+  opacity: 1,
+  transition: opacity 300ms;
+}
+
+.lazyload {
+  opacity: 0;
+}
+
+.lazyloading {
+  opacity: 1;
+  transition: opacity 300ms;
+  background: #g7g7g7 url(loader.gif) no-repeat center;
+}
+
+img.lazyload:not([src]) {
+  visibility: hidden;
+}
 ```
 
 ```sh
