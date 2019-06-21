@@ -53,12 +53,34 @@ lazy->loadAndDestroy();
 $("img.lazyload").lazyload();
 
 
+echo.init({
+  offset: 100,
+  throttle: 250,
+  unload: false,
+  callback: function (element, op) {
+    console.log(element, 'has been', op + 'ed')
+  }
+});
 
+echo.init({
+  callback: function(element, op) {
+    if(op === 'load') {
+      element.classList.add('loaded');
+    } else {
+      element.classList.remove('loaded');
+    }
+  }
+});
+
+echo.render();
 ```
 
 ```sh
 yarn add lazyload
 npm install lazyload
+
+bower install echojs
+npm install echo-js
 ```
 
 ```
